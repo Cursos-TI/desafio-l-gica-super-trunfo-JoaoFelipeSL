@@ -9,6 +9,10 @@
 
 
 
+
+#include <stdio.h>
+
+
 //Função para calcular a densidade populacional de cada cidade
 float densidadePopulacional(int populacao, float area) {
     float densidade;
@@ -126,8 +130,20 @@ int main() {
     printf("PIB per capita: %.2f reais\n\n", pibPerCapitaCarta2);
     */
 
-    int valor;
+
     //Comparações
+    int atributo1;
+    int atributo2;
+    int ressultado1;
+    int ressultado2;
+    char *nomeAtributo1;
+    char *nomeAtributo2;
+    float Caso1ValorAtributo1;
+    float Caso1ValorAtributo2;
+    float Caso2ValorAtributo1;
+    float Caso2ValorAtributo2;
+
+
 
     //Induzir o usuario a escolher o atributo que quer comparar
     printf("Informe qual atributo das cartas você quer comparar:\n");
@@ -138,132 +154,286 @@ int main() {
     printf("Digite 5 - Densidade populacional\n");
     printf("Digite 6 - PIB per capita\n");
     printf("Digite 7 - Super poder\n");
-    scanf("%i", &valor);
+    scanf("%i", &atributo1);
 
-    //Utilizando switch para determinar qual atributo vai ser usado e condiçoes para ver o vencedor de acordo com o atributo escolhido
-    switch (valor){
-    case 1:
-        if (populacao > populacao2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: POPULAÇÃO\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", populacao, populacao2);
-            printf("O VENCEDOR É A CARTA 1\n");
+    //Induzir o usuario a escolher o atributo que quer comparar
+    printf("Informe qual atributo das cartas você quer comparar:\n");
+    printf("Digite 1 - População\n");
+    printf("Digite 2 - Area\n");
+    printf("Digite 3 - PIB\n");
+    printf("Digite 4 - Numero de pontos turisticos\n");
+    printf("Digite 5 - Densidade populacional\n");
+    printf("Digite 6 - PIB per capita\n");
+    printf("Digite 7 - Super poder\n");
+    scanf("%i", &atributo2);
 
+    if (atributo1 == atributo2) {
+        printf("Você escolheu os mesmos atributos!, tente novamente!\n");
+    }
+    else {
+        //Utilizando switch para determinar qual atributo vai ser usado e condiçoes para ver o vencedor de acordo com o atributo escolhido
+        switch (atributo1){
+        case 1:
+            if (populacao > populacao2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "População";
+                Caso1ValorAtributo1 = populacao;
+                Caso1ValorAtributo2 = populacao2;
+
+            }
+            else if(populacao < populacao2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo2 = "População";
+                Caso1ValorAtributo1 = populacao;
+                Caso1ValorAtributo2 = populacao2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 2:
+            if (area > area2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "Area";
+                Caso1ValorAtributo1 = area;
+                Caso1ValorAtributo2 = area2;
+            }
+            else if (area < area2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "Area";
+                Caso1ValorAtributo1 = area;
+                Caso1ValorAtributo2 = area2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 3:
+            if (pib > pib2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "PIB";
+                Caso1ValorAtributo1 = pib;
+                Caso1ValorAtributo2 = pib2;
+            }
+            else if (pib < pib2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "PIB";
+                Caso1ValorAtributo1 = pib;
+                Caso1ValorAtributo2 = pib2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 4:
+            if (numeroPT > numeroPT2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "Numero de pontos turisticos";
+                Caso1ValorAtributo1 = numeroPT;
+                Caso1ValorAtributo2 = numeroPT2;
+            }
+            else if (numeroPT < numeroPT2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "Numero de pontos turisticos";
+                Caso1ValorAtributo1 = numeroPT;
+                Caso1ValorAtributo2 = numeroPT2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 5:
+            if (densidadeCarta1 < densidadeCarta2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "Densidade";
+                Caso1ValorAtributo1 = densidadeCarta1;
+                Caso1ValorAtributo2 = densidadeCarta2;
+            }
+            else if (densidadeCarta1 > densidadeCarta2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "Densidade";
+                Caso1ValorAtributo1 = densidadeCarta1;
+                Caso1ValorAtributo2 = densidadeCarta2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 6:
+            if (pibPerCapitaCarta1 > pibPerCapitaCarta2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "PIB per capita";
+                Caso1ValorAtributo1 = pibPerCapitaCarta1;
+                Caso1ValorAtributo2 = pibPerCapitaCarta2;
+            }
+            else if (pibPerCapitaCarta1 < pibPerCapitaCarta2) { //caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "PIB per capita";
+                Caso1ValorAtributo1 = pibPerCapitaCarta1;
+                Caso1ValorAtributo2 = pibPerCapitaCarta2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        case 7:
+            if (superPoderCarta1 > superPoderCarta2) { //Caso 1: carta 1 vence.
+                ressultado1 = 1;
+                nomeAtributo1 = "SUPER PODER";
+                Caso1ValorAtributo1 = superPoderCarta1;
+                Caso1ValorAtributo2 = superPoderCarta2;
+            }
+            else if (superPoderCarta1 < superPoderCarta2) { //Caso 2: carta 2 vence.
+                ressultado1 = 0;
+                nomeAtributo1 = "SUPER PODER";
+                Caso1ValorAtributo1 = superPoderCarta1;
+                Caso1ValorAtributo2 = superPoderCarta2;
+            }
+            else { //caso 3: Empate.
+                printf("Empate!\n"); 
+            }
+            break;
+        default:
+            break;
         }
-        else if(populacao < populacao2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: POPULAÇÃO\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", populacao, populacao2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 2:
-        if (area > area2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: AREA\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", area, area2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (area < area2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: AREA\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", area, area2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 3:
-        if (pib > pib2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: PIB\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", pib, pib2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (pib < pib2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: PIB\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", pib, pib2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 4:
-        if (numeroPT > numeroPT2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: NUMERO DE PONTOS TURISTICOS\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", numeroPT, numeroPT2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (numeroPT < numeroPT2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: NUMERO DE PONTOS TURISTICOS\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", numeroPT, numeroPT2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 5:
-        if (densidadeCarta1 < densidadeCarta2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: DENSIDADE POPULACIONAL\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", densidadeCarta1, densidadeCarta2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (densidadeCarta1 > densidadeCarta2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: DENSIDADE POPULACIONAL\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", densidadeCarta1, densidadeCarta2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 6:
-        if (pibPerCapitaCarta1 > pibPerCapitaCarta2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: PIB PER CAPITA\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", pibPerCapitaCarta1, pibPerCapitaCarta2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (pibPerCapitaCarta1 < pibPerCapitaCarta2) { //caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: PIB PER CAPITA\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", pibPerCapitaCarta1, pibPerCapitaCarta2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    case 7:
-        if (superPoderCarta1 > superPoderCarta2) { //Caso 1: carta 1 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: SUPER PODER\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", superPoderCarta1, superPoderCarta2);
-            printf("O VENCEDOR É A CARTA 1\n");
-        }
-        else if (superPoderCarta1 < superPoderCarta2) { //Caso 2: carta 2 vence.
-            printf("PAISES: %s e %s\n", estado, estado2);
-            printf("ATRIBUTO: SUPER PODER\n");
-            printf("VALORES: CARTA1: %i, CARTA2: %i\n", superPoderCarta1, superPoderCarta2);
-            printf("O VENCEDOR É A CARTA 2\n");
-        }
-        else { //caso 3: Empate.
-            printf("Empate!\n"); 
-        }
-        break;
-    default:
-        break;
+
+
+
+
+
+        switch (atributo2){
+            case 1:
+                if (populacao > populacao2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "População";
+                    Caso2ValorAtributo1 = populacao;
+                    Caso2ValorAtributo2 = populacao2;
+    
+                }
+                else if(populacao < populacao2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "População";
+                    Caso2ValorAtributo1 = populacao;
+                    Caso2ValorAtributo2 = populacao2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 2:
+                if (area > area2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "Area";
+                    Caso2ValorAtributo1 = area;
+                    Caso2ValorAtributo2 = area2;
+                }
+                else if (area < area2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "Area";
+                    Caso2ValorAtributo1 = area;
+                    Caso2ValorAtributo2 = area2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 3:
+                if (pib > pib2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "PIB";
+                    Caso2ValorAtributo1 = pib;
+                    Caso2ValorAtributo2 = pib2;
+                }
+                else if (pib < pib2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    Caso2ValorAtributo1 = pib;
+                    Caso2ValorAtributo2 = pib2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 4:
+                if (numeroPT > numeroPT2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "Numeros de pontos turisticos";
+                    Caso2ValorAtributo1 = numeroPT;
+                    Caso2ValorAtributo2 = numeroPT2;
+                }
+                else if (numeroPT < numeroPT2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "Numeros de pontos turisticos";
+                    Caso2ValorAtributo1 = numeroPT;
+                    Caso2ValorAtributo2 = numeroPT2;;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 5:
+                if (densidadeCarta1 < densidadeCarta2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "Densidade";
+                    Caso2ValorAtributo1 = densidadeCarta1;
+                    Caso2ValorAtributo2 = densidadeCarta2;
+                }
+                else if (densidadeCarta1 > densidadeCarta2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "Densidade";
+                    Caso2ValorAtributo1 = densidadeCarta1;
+                    Caso2ValorAtributo2 = densidadeCarta2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 6:
+                if (pibPerCapitaCarta1 > pibPerCapitaCarta2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "PIB per capita";
+                    Caso2ValorAtributo1 = pibPerCapitaCarta1;
+                    Caso2ValorAtributo2 = pibPerCapitaCarta2;
+                }
+                else if (pibPerCapitaCarta1 < pibPerCapitaCarta2) { //caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "PIB per capita";
+                    Caso2ValorAtributo1 = pibPerCapitaCarta1;
+                    Caso2ValorAtributo2 = pibPerCapitaCarta2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            case 7:
+                if (superPoderCarta1 > superPoderCarta2) { //Caso 1: carta 1 vence.
+                    ressultado2 = 1;
+                    nomeAtributo2 = "SUPER PODER";
+                    Caso2ValorAtributo1 = superPoderCarta1;
+                    Caso2ValorAtributo2 = superPoderCarta2;
+                }
+                else if (superPoderCarta1 < superPoderCarta2) { //Caso 2: carta 2 vence.
+                    ressultado2 = 0;
+                    nomeAtributo2 = "SUPER PODER";
+                    Caso2ValorAtributo1 = superPoderCarta1;
+                    Caso2ValorAtributo2 = superPoderCarta2;
+                }
+                else { //caso 3: Empate.
+                    printf("Empate!\n"); 
+                }
+                break;
+            default:
+                break;
+            }
+            //Resultado do duelo 
+            printf("Resultado do duelo:\n");
+            printf("PAISES: %s, %s\n", estado, estado2);
+            printf("ATRIBUTOS 1 e 2: %s, %s\n", nomeAtributo1, nomeAtributo2);
+            printf("Valores dos Atributos 1: %d, %d Valores dos Atributos 2: %d, %d\n", Caso1ValorAtributo1, Caso1ValorAtributo2, Caso2ValorAtributo1, Caso2ValorAtributo2);
+            float soma1 = Caso1ValorAtributo1 + Caso2ValorAtributo1;
+            float soma2 = Caso1ValorAtributo2 + Caso2ValorAtributo2;
+            printf("Soma dos atributos são: %f e  %f\n", soma1, soma2);
+            soma1 > soma2 ? printf("Carta 1 venceu\n") : printf("Carta 2 venceu\n");
+
     }
 
 }
